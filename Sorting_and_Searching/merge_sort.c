@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 
 merge_sort(int arr[],int l,int r)
 { if(l<r)
@@ -67,7 +68,7 @@ void merge(int arr[], int l, int m, int r)
   
 
 void main()
-{ int arr[100000],i,n;
+{ int arr[100000],i,n;clock_t start,end;
   printf("Enter the no of elements in array");
   scanf("%d",&n);
 
@@ -83,15 +84,17 @@ void main()
     printf("%d ",arr[i]);    
   }
   printf("\n");
+  start=clock();
   merge_sort(arr,0,n-1);
-  
+  end=clock();
+  time=(double)(end-start)/CLOCKS_PER_SEC;
   printf("Sorted array is\n");
   
   for(i=0;i<n;i++)
   {
     printf("%d ",arr[i]);    
   }
-  
+  printf("Time for merge sort is %f",time);
 }
 
 

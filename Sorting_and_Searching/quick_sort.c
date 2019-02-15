@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<time.h>
 
 void quick_sort(int arr[],int low,int high)
 {   if(low<high)
@@ -32,13 +33,13 @@ return i+1;
 }
 
 void main()
-{ int n,i,a[2000]; 
+{ int n,i,a[2000];clock_t start,end; 
   printf("Enter the no of elements");
   scanf("%d",&n);
 
   for(i=0;i<n;i++)
   { 
-      scanf("%d",&a[i]);
+       a[i]=rand();
   }
 
   printf("Unsorted array is\n");
@@ -46,13 +47,14 @@ void main()
   {  
       printf("%d ",a[i]);
   }
-
+  start=clock();
   quick_sort(a,0,n-1);
-
+  end=clock();
+  double time=(double)(end-start)/CLOCKS_PER_SEC;
   printf("Sorted array is\n");
   for(i=0;i<n;i++)
   {   
       printf("%d ",a[i]);
   }  
-
+  printf("Time for quicksort is %f",time);
 }
