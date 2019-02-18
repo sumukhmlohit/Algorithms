@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 
-merge_sort(int arr[],int l,int r)
+void merge_sort(int arr[],int l,int r)
 { if(l<r)
   {
     int m=l+(r-l)/2;
@@ -87,7 +87,7 @@ void main()
   start=clock();
   merge_sort(arr,0,n-1);
   end=clock();
-  time=(double)(end-start)/CLOCKS_PER_SEC;
+  double time=(double)(end-start)/CLOCKS_PER_SEC;
   printf("Sorted array is\n");
   
   for(i=0;i<n;i++)
