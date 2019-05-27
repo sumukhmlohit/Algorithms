@@ -4,17 +4,17 @@ void dijkstra(int source,int cost[20][20],int visited[20],int d[20],int n)
   { 
     int i,j,min,u,w;
     for(i=1;i<=n;i++)
-     {
- 	visited[i]=0;
+     {			// first mark all vertices as unvisited and calculate the distance from source to all vertices(direct edges only)
+ 	visited[i]=0;			
         d[i]=cost[source][i];
      } 
-    visited[source]=1;
+    visited[source]=1;		
     d[source]=0;
     for(j=2;j<=n;j++)
     {
      min=111;
      for(i=1;i<=n;i++)
-      {
+      {  // if vertex not visited, find the min distance 
        if(!visited[i])
 	     {
 	       if(d[i]<min)
@@ -24,13 +24,13 @@ void dijkstra(int source,int cost[20][20],int visited[20],int d[20],int n)
 	        }
 	      }
       }
-     visited[u]=1;
+     visited[u]=1;		// mark the same vertex as visited
      for(w=1;w<=n;w++)
      {
       if(cost[u][w]!=111&&visited[w]==0)
        {
-         if(d[w]>cost[u][w]+d[u])
-         d[w]=cost[u][w]+d[u];
+         if(d[w]>cost[u][w]+d[u])			
+         d[w]=cost[u][w]+d[u];					// if source to vertex direct dist > indirect dist , make that as the cost(source to vertex)
         }
       }
     }

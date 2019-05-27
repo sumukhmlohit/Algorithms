@@ -14,6 +14,9 @@ void main()
         visited[i]=0;
     printf("Enter source node\n");
     scanf("%d",&source);
+	
+	dfs(a,n,visited,source);
+	
     for(i=1;i<=n;i++)
         if(visited[i]==0)
             dfs(a,n,visited,i);

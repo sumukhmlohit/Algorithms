@@ -17,8 +17,8 @@ int main()
  printf("Enter the source node\n");
  scanf("%d",&source);
  visited[source]=1;
- while(ne<n)
- {
+ while(ne<n)					//no of edges=n-1
+ {  // find the min cost unvisited vertex
   for(i=1,min=999;i<=n;i++)
    for(j=1;j<=n;j++)
     if(cost[i][j]<min)
@@ -28,6 +28,7 @@ int main()
       a=u=i;
       b=v=j;
      }
+	 // if both vertices are unvisited , then no cycle and add it to MCST
   if(visited[u]==0 || visited[v]==0)
   {
    printf("Edge %d:(%d->%d) cost:%d\n",ne++,a,b,min);

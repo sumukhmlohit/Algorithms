@@ -13,9 +13,10 @@ void main()
   for(i=1;i<=n;i++)
   parent[i]=0;
   printf("The edges of spanning tree are: \n ");
-  while(ne<n)
+  while(ne<n)		//no of edges=n-1
   { 
     min=111;
+	// find the min cost edge
     for(i=1;i<=n;i++)
       for(j=1;j<=n;j++)
       {
@@ -26,10 +27,12 @@ void main()
 	   b=v=j;
 	}
       }
+	  
   while(parent[u])
   u=parent[u];
   while(parent[v])
   v=parent[v]; 
+  // if both vertices of an edge have different parents , then no cycle and add that edge
   if(u!=v)
    { 
      printf(" \n Edge %d \t %d -> %d =%d \n",ne++,a,b,min);

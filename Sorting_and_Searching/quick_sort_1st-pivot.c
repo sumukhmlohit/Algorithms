@@ -13,7 +13,7 @@ void quick_sort(int arr[],int low,int high)
 }
 
 int partition(int arr[],int low,int high)
-{  int pivot=arr[low]; //pivot-last element
+{  int pivot=arr[low]; //pivot-first element
    int i=low;//index of smaller element
    int j=high;
    int temp;
@@ -26,10 +26,10 @@ int partition(int arr[],int low,int high)
       j--;
       
        if(i<j)
-       temp=arr[i];
-       arr[i]=arr[j];
-       arr[j]=temp;
-
+       { temp=arr[i];
+         arr[i]=arr[j];
+         arr[j]=temp;
+	   }
       
    }
 
